@@ -1,6 +1,6 @@
 import React from 'react';
 import { setSearchTerm, clearSearchTerm } from './searchTermSlice.js';
-import { loadData } from '../inventory/inventorySlice';
+import { loadData, loadSearchTerm } from '../inventory/inventorySlice';
 
 const searchIconUrl =
   'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/search.svg';
@@ -17,11 +17,12 @@ export const SearchTerm = (props) => {
 
   const onClearSearchTermHandler = () => {
     dispatch(clearSearchTerm());
+    dispatch(loadData());
   };
 
   const onSearchTermEnterHandler = (e) => {
     if (e.key === 'Enter') {
-      dispatch(loadData('anal mystery'));
+      dispatch(loadSearchTerm(e.target.value));
     }
   }
 

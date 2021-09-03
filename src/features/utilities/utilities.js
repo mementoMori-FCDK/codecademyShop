@@ -1,3 +1,12 @@
+import { inventoryData } from '../../data';
+
+export const dataSearch = (searchTerm) => {
+  const filteredInventory = inventoryData.filter(item => {
+    return item.name.toLocaleUpperCase().includes(searchTerm.toLocaleUpperCase());
+  });
+  return filteredInventory;
+} 
+
 export function calculatePrice(price, currency) {
   switch (currency) {
     case 'EUR':

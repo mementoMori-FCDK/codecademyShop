@@ -22,7 +22,7 @@ export const Cart = (props) => {
   // Use the cart and currencyFilter slices to render their data.
   const cartElements = [];
   Object.entries(cart).map(item => {
-    cartElements.push(createCartItem(item[0]));
+    return cartElements.push(createCartItem(item[0]));
   });
   const total = calculateTotal(cart, currencyFilter);
 
